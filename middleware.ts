@@ -69,35 +69,36 @@ export async function middleware(req: NextRequest, context: NextFetchEvent) {
     //  👇 below only works for production
 
     if (!userKey) {
-      const { success, remaining } = await ratelimitForIps.limit(ipIdentifier)
-      console.log(`ip free user ${ipIdentifier}, remaining: ${remaining}`)
-      if (!success) {
-        // We need to create a response and hand it to the supabase client to be able to modify the response headers.
-        const res = NextResponse.next()
-        // TODO: unique to a user (userid, email etc) instead of IP
-        // Create authenticated Supabase Client.
-        const supabase = createMiddlewareSupabaseClient({ req, res })
-        // Check if we have a session
-        const {
-          data: { session },
-        } = await supabase.auth.getSession()
-        // Check auth condition
-        const userEmail = session?.user.email
-        if (userEmail) {
-          // Authentication successful, forward request to protected route.
-          const { success, remaining } = await ratelimitForFreeAccounts.limit(userEmail)
-          // TODO: only reduce the count after summarized successfully
-          console.log(`login user ${userEmail}, remaining: ${remaining}`)
-          if (!success) {
-            return redirectShop(req)
-          }
+      // const { success, remaining } = await ratelimitForIps.limit(ipIdentifier)
+      // console.log(`ip free user ${ipIdentifier}, remaining: ${remaining}`)
+      // if (!success) {
+      //   // We need to create a response and hand it to the supabase client to be able to modify the response headers.
+      //   const res = NextResponse.next()
+      //   // TODO: unique to a user (userid, email etc) instead of IP
+      //   // Create authenticated Supabase Client.
+      //   const supabase = createMiddlewareSupabaseClient({ req, res })
+      //   // Check if we have a session
+      //   const {
+      //     data: { session },
+      //   } = await supabase.auth.getSession()
+      //   // Check auth condition
+      //   const userEmail = session?.user.email
+      //   if (userEmail) {
+      //     // Authentication successful, forward request to protected route.
+      //     const { success, remaining } = await ratelimitForFreeAccounts.limit(userEmail)
+      //     // TODO: only reduce the count after summarized successfully
+      //     console.log(`login user ${userEmail}, remaining: ${remaining}`)
+      //     if (!success) {
+      //       return redirectShop(req)
+      //     }
 
-          return res
-        }
+      //     return res
+      //   }
 
-        // todo: throw error to trigger a modal, rather than redirect a page
-        return redirectAuth()
-      }
+      //   // todo: throw error to trigger a modal, rather than redirect a page
+      //   return redirectAuth()
+      // }
+      return redirectShop(req)
     }
 
     const result = await redis.get<string>(cacheId)

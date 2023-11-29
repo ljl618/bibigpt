@@ -24,7 +24,7 @@ export function UserKeyInput(props: { value: string | undefined; onChange: (e: a
         </svg>
         <p className="text-left font-medium">
           <span className="text-sky-400 hover:text-sky-600">请使用自己的 API Key</span>
-          （每天免费 {RATE_LIMIT_COUNT} 次哦，支持
+          请放心，您输入的API密钥不会被上传到我们的服务器， 而只会在本地存储在您的浏览器中，不会有泄漏的风险。 我们会尽最大努力保护您的隐私和数据安全。
           <a
             className="text-pink-400 hover:underline"
             href={CHECKOUT_URL}
@@ -32,9 +32,8 @@ export function UserKeyInput(props: { value: string | undefined; onChange: (e: a
             rel="noopener noreferrer"
             onClick={() => analytics.track('ShopLink Clicked')}
           >
-            「购买次数」
+            「购买链接」
           </a>
-          啦！
         </p>
       </summary>
       <div className="text-lg text-slate-700 dark:text-slate-400">
@@ -42,7 +41,7 @@ export function UserKeyInput(props: { value: string | undefined; onChange: (e: a
           value={props.value}
           onChange={props.onChange}
           className="mx-auto my-4 w-full appearance-none rounded-lg rounded-md border bg-transparent py-2 pl-2 text-sm leading-6 text-slate-900 shadow-sm ring-1 ring-slate-200 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder={'填你的 OpenAI API Key: sk-xxxxxx 或者购买的 License Key: xxx-CCDE-xxx'}
+          placeholder={'填你的 OpenAI API Key: sk-xxxxxx '}
         />
         <div className="relin-paragraph-target mt-1 text-base text-slate-500">
           <div>

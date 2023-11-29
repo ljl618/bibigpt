@@ -8,7 +8,7 @@ export default () => {
   return (
     <div>
       <h2 className="mt-10 max-w-5xl pb-10 text-center text-4xl font-bold sm:text-7xl">
-        次数用完啦！每天都能用 {RATE_LIMIT_COUNT} 次，请点击
+      很抱歉：因为站长的账号额度耗尽，目前无 Key 用户无法使用，
         <span className="relative whitespace-nowrap text-[#3290EE]">
           <SquigglyLines />
           <a
@@ -16,10 +16,10 @@ export default () => {
             href={CHECKOUT_URL}
             onClick={() => analytics.track('ShopLink Clicked')}
           >
-            点击购买
+            购买链接
           </a>
         </span>
-        次数哦，💰
+        💰
       </h2>
     </div>
   )
