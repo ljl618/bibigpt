@@ -24,21 +24,6 @@ export function UserKeyInput(props: { value: string | undefined; onChange: (e: a
         </svg>
         <p className="text-left font-medium">
           <span className="text-sky-400 hover:text-sky-600">请使用自己的 API Key</span>
-          （每天免费 {RATE_LIMIT_COUNT} 次哦，支持
-          <a
-            className="text-pink-400 hover:underline"
-            href={CHECKOUT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => analytics.track('ShopLink Clicked')}
-          >
-            「购买次数」
-          </a>
-          啦！
-          <a href="/wechat.jpg" target="_blank" rel="noopener noreferrer">
-            也可以真的
-            <span className="text-pink-400 hover:underline">「给我打赏」</span>哦 🤣）
-          </a>
         </p>
       </summary>
       <div className="text-lg text-slate-700 dark:text-slate-400">
@@ -57,7 +42,7 @@ export function UserKeyInput(props: { value: string | undefined; onChange: (e: a
               rel="noopener noreferrer"
               className="mt-4 mb-6 pl-2 font-semibold text-sky-500 dark:text-sky-400"
             >
-              https://shop.jimmylv.cn
+              http://faka.aifk.pw/
             </a>
           </div>
         </div>

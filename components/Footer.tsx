@@ -27,21 +27,6 @@ export default function Footer() {
         </a>
       </div>
       <div className="flex items-center space-x-1">
-        <Link href="/privacy" className="group" aria-label="隐私声明">
-          Privacy Statement
-        </Link>
-        <Link href="https://twitter.com/Jimmy_JingLv" className="group" aria-label="JimmyLv on Twitter">
-          <div
-            className={buttonVariants({
-              size: 'sm',
-              variant: 'ghost',
-              className: 'text-slate-700 dark:text-slate-400',
-            })}
-          >
-            <Icons.twitter className="h-5 w-5 fill-current" />
-            <span className="sr-only">Twitter</span>
-          </div>
-        </Link>
         <Link href="https://github.com/JimmyLv" className="group" aria-label="JimmyLv on GitHub">
           <div
             className={buttonVariants({

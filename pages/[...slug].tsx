@@ -169,7 +169,6 @@ export const Home: NextPage<{
 
   return (
     <div className="mt-10 w-full px-4 sm:mt-40 lg:px-0">
-      <UsageDescription />
       <TypingSlogan />
       <UsageAction />
       <UserKeyInput value={userKey} onChange={handleApiKeyChange} />
