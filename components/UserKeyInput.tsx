@@ -24,6 +24,17 @@ export function UserKeyInput(props: { value: string | undefined; onChange: (e: a
         </svg>
         <p className="text-left font-medium">
           <span className="text-sky-400 hover:text-sky-600">请使用自己的 API Key</span>
+          （每天免费 {RATE_LIMIT_COUNT} 次哦，支持
+          <a
+            className="text-pink-400 hover:underline"
+            href={CHECKOUT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => analytics.track('ShopLink Clicked')}
+          >
+            「购买次数」
+          </a>
+          啦！
         </p>
       </summary>
       <div className="text-lg text-slate-700 dark:text-slate-400">

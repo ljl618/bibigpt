@@ -57,10 +57,10 @@ export async function middleware(req: NextRequest, context: NextFetchEvent) {
       }
 
       // 3. something-invalid-sdalkjfasncs-key
-      const isValidatedLicense = await validateLicenseKey(userKey, cacheId)
-      if (!isValidatedLicense) {
-        return redirectShop(req)
-      }
+      // const isValidatedLicense = await validateLicenseKey(userKey, cacheId)
+      // if (!isValidatedLicense) {
+      //   return redirectShop(req)
+      // }
     }
 
     if (isDev) {
